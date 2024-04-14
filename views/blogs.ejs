@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <style>
+        body {
+            margin: 20px auto; /* Centering the content horizontally */
+            max-width: 800px; /* Limiting max width of the body */
+        }
+        .blog {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .blog img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            max-height: 150px; /* Adjust the max height as needed */
+        }
+
+        .create-blog-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff; /* Adjust the background color as needed */
+            color: #fff; /* Text color */
+            text-decoration: none; /* Remove underline */
+            border-radius: 5px;
+            transition: background-color 0.3s ease; /* Smooth transition */
+        }
+
+        .create-blog-button:hover {
+            background-color: #0056b3; /* Change color on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>All Blogs</h1>
+    <% blogPosts.forEach(blog => { %>
+        <div class="blog">
+            <h2><%= blog.title %></h2>
+            <img src="<%= blog.imageURL %>" alt="<%= blogPosts.title %>">
+            <p><strong>Author:</strong> <%= blog.description %></p>
+        </div>
+    <% }) %>
+    <h2>Create a New Blog</h2>
+    <a href="/create-blog" class="create-blog-button">Create New Blog</a>
+</body>
+</html>
