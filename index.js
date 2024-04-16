@@ -1,18 +1,18 @@
 import express from 'express';
-import {  configDotenv } from 'dotenv';
-configDotenv();
-const app = express();
-
-import User from './models/userModel.js';
-
-app.use(express.json());
 import deleteUser  from './Controller/Deleteblog.js';
 import bodyParser from 'body-parser';
 import dbConnect from './config/database.js';
-import { signUp } from './Controller/SignUp.js';
- dbConnect();
 import blogPosts from './data.js';
+import User from './models/userModel.js';
+import { signUp } from './Controller/SignUp.js';
+import {  configDotenv } from 'dotenv';
+configDotenv();
 
+dbConnect();
+
+const app = express();
+
+app.use(express.json());
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -22,7 +22,6 @@ app.get('/blogs', (req, res) => {
 
 app.get('/create-blog', (req, res) => {
     res.render('create_blog');
-    
 });
 
 
@@ -63,7 +62,7 @@ app.post('/create-blog',signUp);
 // app.post('/UserSignUp',signUp);
 
 
-app.delete('/Delete/:id',deleteUser);
+app.post('/Delete/:id',deleteUser);
 
 
 
