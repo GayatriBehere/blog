@@ -14,6 +14,7 @@
             border-radius: 5px;
             padding: 10px;
             margin-bottom: 20px;
+            position: relative; /* Add this to position the delete button */
         }
 
         .blog img {
@@ -37,14 +38,33 @@
         .create-blog-button:hover {
             background-color: #0056b3; /* Change color on hover */
         }
+
+        .delete-blog-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Smooth transition */
+        }
+
+        .delete-blog-button:hover {
+            background-color: #c82333; /* Change color on hover */
+        }
     </style>
 </head>
 <body>
     <h1>All Blogs</h1>
-    <% blogPosts.forEach(blog => { %>
+    <% users.forEach(blog => { %>
         <div class="blog">
+            <a href="/Delete/<%= blog._id %>" class="create-blog-button" method="delete">Delete</a>
+
             <h2><%= blog.title %></h2>
-            <img src="<%= blog.imageURL %>" alt="<%= blogPosts.title %>">
+            <img src="<%= blog.imageURL %>" alt="<%= users.title %>">
             <p><strong>Author:</strong> <%= blog.description %></p>
         </div>
     <% }) %>
