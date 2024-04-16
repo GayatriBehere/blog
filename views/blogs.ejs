@@ -59,14 +59,14 @@
 </head>
 <body>
     <h1>All Blogs</h1>
-    <% users.forEach(blog => { %>
+    <% blogs.forEach(blog => { %>
         <div class="blog">
-            <form action="/Delete/<%= blog._id %>" method="POST">
+            <form action="/delete/<%= blog._id %>" method="POST">
                 <button type="submit" class="create-blog-button">Delete</button>
             </form>
 
             <h2><%= blog.title %></h2>
-            <img src="<%= blog.imageURL %>" alt="<%= users.title %>">
+            <img src="<%= blog.imageURL %>" alt="<%= blog.title %>">
             <p><strong>Author:</strong> <%= blog.description %></p>
         </div>
     <% }) %>
