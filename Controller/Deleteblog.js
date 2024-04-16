@@ -1,8 +1,10 @@
+import User from "../models/userModel.js";
+
 const deleteUser = async (req, res) => {
     try {
-        const userId = req.query.id; 
-        console.log(userId);
-        await User.findByIdAndDelete({userId});
+        const userId = req.params.id; 
+        
+        await User.findByIdAndDelete(userId);
         
        
         res.redirect('/users');

@@ -63,8 +63,7 @@ app.post('/create-blog',signUp);
 // app.post('/UserSignUp',signUp);
 
 
-app.delete('/Delete/:id',deleteUser);
-
+app.post('/Delete/:id',deleteUser);
 
 
 
